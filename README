@@ -1,0 +1,56 @@
+Posy::Plugin::Meta version 0.1
+==============================
+
+This module allows one to insert arbitrary metadata into one's entry
+files that can be consumed by other plugins.
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+DEPENDENCIES
+
+This module requires these other modules and libraries:
+
+  Posy
+  Posy::Core
+  Test::More
+
+ACTIVATION
+
+Add this module to Posy's @plugins array.
+
+Add the "parse_meta" action to Posy's @entry_actions array between
+"parse_entry" and "render_entry".
+
+USE
+
+This module currently assumes a very particular structure about one's
+entry files.  Given an entry of the following structure:
+
+  The Entry's Title
+  <!--
+  meta-via: blair christensen.
+  meta-links: http://devclue.com/ http://search.cpan.org/
+  -->
+  The rest of the entry is down here.
+
+Everything between "<!--" and "-->" will be removed from the entry's
+body after being processed by "parse_meta".  In addition, the following
+variables will be set:
+
+  $current_entry->{meta}{via} = "blair christensen.";
+  $current_entry->{meta}{links} = "http://devclue.com/ http://search.cpan.org/"
+
+COPYRIGHT AND LICENSE
+
+Copyright (C) 2005 blair christensen.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+

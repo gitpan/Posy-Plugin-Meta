@@ -1,0 +1,7 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Posy-Plugin-Meta.t
+lib/Posy/Plugin/Meta.pm
+META.yml                                 Module meta-data (added by MakeMaker)
